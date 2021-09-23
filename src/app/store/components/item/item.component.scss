@@ -1,0 +1,181 @@
+$many-text-color: #34a426;
+$not-too-much-text-color: #f4cb0b;
+$few-text-color: #ff3443;
+
+.item-block {
+  width: 80%;
+  margin: 20px auto 60px;
+  .user-route {
+    font-size: 13px;
+    color: #717171;
+    span {
+      margin: 0 8px;
+      cursor: pointer;
+    }
+  }
+  .item-title {
+    margin: 10px 7px 0;
+    font-size: 24px;
+    font-family: "FuturaDemi", Arial, sans-serif;
+    font-weight: normal;
+  }
+  .item-rating {
+    margin: 2px 5px;
+    text-align: left;
+    span {
+      font-size: 24px;
+      margin: 0 1px;
+      line-height: 1;
+      color: #dfdfdf;
+      text-shadow: 1px 1px #cecece;
+    }
+    span:before {
+      content: "★";
+    }
+    span.active {
+      color: #ffca00;
+    }
+  }
+  .item-card {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    .item-card-img-block {
+      display: flex;
+      position: relative;
+      width: 60%;
+      .item-gallery {
+        .mini-img {
+          width: 56px;
+          height: 56px;
+          border: 1px solid #e6e6e6;
+          margin: 5px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+      .big-img {
+        margin: auto auto;
+        padding: 2%;
+        min-width: 100px;
+        max-width: 400px;
+        min-height: 100px;
+        max-height: 400px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      .good {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        right: 30px;
+      }
+    }
+    .item-card-info-block {
+      width: 40%;
+      padding: 20px;
+      .first-line {
+        display: flex;
+        .item-price {
+          font-family: Arial, sans-serif;
+          font-size: 28px;
+          border: 1px dotted #1a1a1a;
+          padding: 5px 20px;
+          width: fit-content;
+        }
+        .not-like-icon {
+          opacity: 0.5;
+          &:hover {
+            opacity: 1;
+          }
+        }
+        .favorites-icon {
+          cursor: pointer;
+          width: 40px;
+          height: 40px;
+          margin: 2px 20px;
+        }
+      }
+      .basket {
+        margin: 20px 0;
+        width: 50%;
+        height: 45px;
+        padding: 10px;
+        font-size: 18px;
+        font-weight: 500;
+        font-family: Tahoma, Geneva, sans-serif;
+        text-align: center;
+        color: #fff;
+        border: 1px solid #d62761;
+        background: rgba(219, 33, 95, 1);
+        cursor: pointer;
+        transition: 0.2s ease;
+        &:hover {
+          transition: 0.2s ease;
+          background: rgba(219, 33, 95, 0.08);
+          color: #d62761;
+        }
+      }
+      .in-basket {
+        color: #d62761;
+        background: rgba(219, 33, 95, 0.08);
+        border: 1px dotted #d62761;
+      }
+      .item-amount {
+      }
+    }
+  }
+  .item-description-block{
+    width: 80%;
+    margin: 130px auto 0;
+    .title-block {
+      border-bottom: 1px solid #bc1f6e;
+      position: relative;
+      .title {
+        position: absolute;
+        left: 60px;
+        top: -46px;
+        width: fit-content;
+        padding: 10px 20px;
+        background: #fff;
+        border: 1px solid #bc1f6e;
+        border-bottom: none;
+        font-size: 20px;
+      }
+    }
+    .item-description{
+      padding: 20px;
+      font-size: 14px;
+    }
+  }
+
+}
+
+.many {
+  padding-bottom: 5px;
+  border-bottom: 4px solid $many-text-color;
+  span {
+    color: $many-text-color;
+  }
+}
+.not-too-much {
+  padding-bottom: 5px;
+  border-bottom: 4px solid $not-too-much-text-color;
+  span {
+    color: $not-too-much-text-color;
+  }
+}
+.few {
+  padding-bottom: 5px;
+  border-bottom: 4px solid $few-text-color;
+  span {
+    color: $few-text-color;
+  }
+}

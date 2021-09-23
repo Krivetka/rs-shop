@@ -1,0 +1,47 @@
+<label>
+  <input
+    type="text"
+    class="search"
+    #searchInput
+    placeholder="Поиск товаров"
+    (click)="headerService.setIsSearch()"
+  />
+  <button
+    class="clear-button"
+    (click)="clearSearch()"
+    *ngIf="headerService.isSearching"
+  >
+    ×
+  </button>
+</label>
+<div class="search-block" *ngIf="headerService.isSearching">
+  <div class="search-item" *ngFor="let searchCategory of searchCategories">
+    <h2
+      (click)="headerService.closeAll()"
+      [routerLink]="[
+        '/goods',
+        searchCategory.split('.')[0],
+        searchCategory.split('.')[1]
+      ]"
+    >
+      {{ searchCategory.split(".")[2] }}
+    </h2>
+  </div>
+  <div
+    class="search-item"
+    *ngFor="let item of searchResponse"
+    [routerLink]="['/goods/item', item.id]"
+  >
+    <div class="search-item-icon">
+      <img
+        [src]="item.imageUrls[0]"
+        *ngIf="item.imageUrls.length > 0"
+        [alt]="item.name"
+      />
+    </div>
+    <div class="search-item-info">
+      <h3>{{ item.name }}</h3>
+      <h4>{{ item.price }} р.</h4>
+    </div>
+  </div>
+</div>

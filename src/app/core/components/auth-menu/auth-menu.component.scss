@@ -1,0 +1,112 @@
+$input-focus-border: #423eff;
+$button-background-color: #07c;
+$button-hover-text-color: #d62761;
+$valid-border-color: #19801b;
+$invalid-border-color: #ff3f17;
+
+.auth-menu-field {
+  background-color: rgba(13, 13, 13, 0.5);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .auth-menu-block {
+    margin-top: -15%;
+    position: relative;
+    width: 480px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding-bottom: 30px;
+    #close-button {
+      position: relative;
+      top: 16px;
+      left: 440px;
+      width: 24px;
+      height: 24px;
+      fill: #dadce0;
+      &:hover {
+        filter: brightness(66.2%);
+      }
+    }
+    .auth-menu-form {
+      display: flex;
+      flex-direction: column;
+      h3 {
+        margin: 25px 0 10px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 26px;
+        color: #1a1a1a;
+      }
+      label {
+        margin-left: 40px;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        line-height: 20px;
+        color: #b0b3b8;
+      }
+      input {
+        margin: 5px auto 15px;
+        width: 398px;
+        height: 38px;
+        padding: 10px 12px 12px;
+        box-sizing: border-box;
+        border: 1px solid rgba(213, 215, 219, 0.6);
+        border-radius: 2px;
+        outline: none;
+        font-size: 14px;
+        line-height: 20px;
+        color: #1a1a1a;
+        background: transparent;
+        &.ng-touched.ng-invalid {
+          border-bottom: solid $invalid-border-color 2px;
+        }
+        &.ng-touched.ng-valid {
+          border-bottom: solid $valid-border-color 2px;
+        }
+      }
+      .big-button {
+        margin: 10px auto 15px;
+        width: 120px;
+        height: 40px;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        font-weight: 700;
+        border-radius: 4px;
+        background-color: $button-background-color;
+        cursor: pointer;
+        box-sizing: border-box;
+        line-height: 20px;
+      }
+      .more {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        padding-top: 20px;
+        width: 80%;
+        border-top: 1px solid #e6e7e9;
+        p {
+          width: 90px;
+          cursor: pointer;
+          font-family: Arial, sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 20px;
+          color: #1a1a1a;
+          text-decoration: underline;
+          &:hover {
+            color: $button-hover-text-color;
+          }
+        }
+      }
+    }
+  }
+}

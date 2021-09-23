@@ -1,0 +1,25 @@
+<div class="swiper-field">
+  <h2>Популярные товары</h2>
+  <swiper [navigation]="true">
+    <ng-template swiperSlide *ngFor="let slide of sliderItems">
+      <div class="grid-container">
+        <div
+          *ngFor="let info of slide; let i = index"
+          class="post-{{ i + 1 }} post"
+        >
+          <div class="post-img">
+            <img [src]="info.urlImg" [alt]="info.name" />
+          </div>
+          <div class="post-info" [title]="info.category + ' ' + info.name">
+            <div class="post-title" [routerLink]="info.route">
+              <h3>{{ info.category }}</h3>
+              <h3>{{ info.name }}</h3>
+            </div>
+            <p class="post-id">код {{ info.id }}</p>
+            <p class="post-price">{{ info.price }} р.</p>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </swiper>
+</div>

@@ -1,0 +1,21 @@
+<div class="header-info">
+  <div class="location">
+    <button
+      type="button"
+      class="location-button"
+      (click)="headerService.setCityMenu(true)"
+    >
+      <svg class="location-icon">
+        <use xlink:href="../../assets/sprite.svg#location"></use>
+      </svg>
+      <h4>{{ headerService.userCity }}</h4>
+    </button>
+  </div>
+  <app-contacts></app-contacts>
+  <div class="schedule">
+    <svg class="schedule-icon">
+      <use xlink:href="../../assets/sprite.svg#clock"></use>
+    </svg>
+    <h6>контакт-центр с 8:00 до 22:00</h6>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+<div class="categories-header">
+  <h3 class="user-route">
+    <span routerLink="/">Главная</span><span>>></span
+    ><span [routerLink]="['/goods', categoryId]"> {{ activeCategory }}</span
+    ><span *ngIf="activeSubCategory">>></span
+    ><span> {{ activeSubCategory }}</span>
+  </h3>
+  <h2 class="categories-title" *ngIf="activeSubCategory; else categoryTitle">
+    {{ activeSubCategory }}
+  </h2>
+  <ng-template #categoryTitle>
+    <h2 class="categories-title">{{ activeCategory }}</h2></ng-template
+  >
+  <h3>
+    Сортировать по:
+    <span
+      class="sort"
+      [ngClass]="{ 'active-sort': activeClass === 'rating' }"
+      (click)="SortBy('rating')"
+      >Популярности</span
+    ><span
+      class="sort"
+      [ngClass]="{ 'active-sort': activeClass === 'price' }"
+      (click)="SortBy('price')"
+      >Цене</span
+    >
+  </h3>
+</div>
+<div class="store-items-block">
+  <div
+    *ngFor="let item of items"
+    class="item-card"
+    [ngClass]="{
+      many: item.availableAmount > 19,
+      'not-too-much': item.availableAmount <= 19 && item.availableAmount >= 5,
+      few: item.availableAmount < 5,
+      zero: item.availableAmount === 0
+    }"
+  >
+    <div class="item-icon">
+      <img
+        [src]="item.imageUrls[0]"
+        alt="item-icon"
+        *ngIf="item.imageUrls[0]; else noPhoto"
+      />
+      <ng-template #noPhoto
+        ><img src="../../../../assets/no_image.jpg" alt="item-icon"
+      /></ng-template>
+    </div>
+    <svg
+      class="favorites-icon not-like-icon"
+      *ngIf="!item.isFavorite; else like"
+      (click)="addFavorites(item.id)"
+    >
+      <use xlink:href="../../assets/sprite.svg#not-like"></use>
+    </svg>
+    <ng-template #like>
+      <svg class="favorites-icon">
+        <use xlink:href="../../assets/sprite.svg#favorite"></use>
+      </svg>
+    </ng-template>
+    <h3 class="item-name" [routerLink]="['/goods/item', item.id]" (click)="headerService.closeAll()">
+      {{ item.name }}
+    </h3>
+    <div class="item-amount" *ngIf="item.availableAmount > 0; else nullAmount">
+      В наличии
+    </div>
+    <ng-template #nullAmount
+      ><div class="item-amount">× Нет на складе</div>
+    </ng-template>
+    <div class="item-prise" *ngIf="item.availableAmount > 0">
+      {{ item.price }} р.
+    </div>
+    <div class="item-rating" *ngIf="item.rating > 0">
+      <span [ngClass]="{ active: item.rating > 0 }"></span>
+      <span [ngClass]="{ active: item.rating > 1 }"></span>
+      <span [ngClass]="{ active: item.rating > 2 }"></span>
+      <span [ngClass]="{ active: item.rating > 3 }"></span>
+      <span [ngClass]="{ active: item.rating > 4 }"></span>
+    </div>
+    <button
+      class="basket"
+      *ngIf="!item.isInCart && item.availableAmount > 0; else InCart"
+      (click)="addCard(item.id)"
+    >
+      В корзину
+    </button>
+    <ng-template #InCart>
+      <button class="basket in-basket" *ngIf="item.availableAmount > 0">
+        Уже в корзине
+      </button>
+    </ng-template>
+  </div>
+</div>
+<div class="show-more" (click)="addMoreItems()">Показать ещё...</div>

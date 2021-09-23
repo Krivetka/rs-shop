@@ -1,0 +1,18 @@
+<div class="city-menu-field" (mousedown)="headerService.closeCityMenu($event.target)">
+  <div class="city-menu">
+    <svg id="close-button" (click)="this.headerService.setCityMenu(false)">
+      <use xlink:href="../../assets/sprite.svg#close"></use>
+    </svg>
+    <h3>Населенный пункт</h3>
+    <h4>
+      Вам будут показаны товары, а также условия доставки для выбранного
+      населенного пункта.
+    </h4>
+    <label for="city"> Населенный пункт </label>
+    <input type="text" [(ngModel)]="city" id="city" />
+    <div class="city-response-field">
+      <div *ngFor="let city of citiesResponse" class="city-response" (click)="setCity(city)">{{city}}</div>
+    </div>
+    <button type="button" class="big-button" (click)="sentCity()" [disabled]="!city">Сохранить</button>
+  </div>
+</div>

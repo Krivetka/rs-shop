@@ -1,0 +1,110 @@
+$input-focus-border: #423eff;
+.city-menu-field {
+  background-color: rgba(13, 13, 13, 0.5);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  .city-menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+    height: 310px;
+    margin-top: 96px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding-bottom: 40px;
+    #close-button {
+      position: relative;
+      top: 16px;
+      left: 440px;
+      width: 24px;
+      height: 24px;
+      fill: #dadce0;
+      &:hover {
+        filter: brightness(66.2%);
+      }
+    }
+    h3 {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 26px;
+      color: #1a1a1a;
+    }
+    h4 {
+      margin: 4px auto 16px;
+      width: 384px;
+      font-family: Arial, sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: center;
+      color: #1a1a1a;
+    }
+    label {
+      margin-left: 40px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      line-height: 20px;
+      color: #b0b3b8;
+    }
+    input {
+      margin: 5px auto;
+      width: 398px;
+      height: 38px;
+      padding: 10px 12px 12px;
+      box-sizing: border-box;
+      border: 1px solid rgba(213, 215, 219, 0.6);
+      border-radius: 2px;
+      outline: none;
+      font-size: 14px;
+      line-height: 20px;
+      color: #1a1a1a;
+      background: transparent;
+      &:focus {
+        border-bottom: 2px solid $input-focus-border;
+      }
+    }
+    .city-response-field {
+      position: absolute;
+      max-height: 160px;
+      overflow-x: auto;
+      top: 192px;
+      left: 42px;
+      box-shadow: 0 4px 12px 0 rgb(41 44 51 / 12%),
+        0 2px 2px 0 rgb(41 44 51 / 4%);
+    }
+    .city-response {
+      width: 398px;
+      height: 38px;
+      background: #fff;
+      padding: 10px 12px 12px;
+      cursor: pointer;
+      &:hover {
+        background: #fffddd;
+      }
+    }
+    .big-button {
+      margin: 30px auto 0;
+      width: 124px;
+      height: 48px;
+      text-align: center;
+      color: #fff;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      border-radius: 4px;
+      background-color: #07c;
+      cursor: pointer;
+      box-sizing: border-box;
+      line-height: 20px;
+    }
+  }
+}

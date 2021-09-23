@@ -1,0 +1,15 @@
+<div class="banner-block">
+  <swiper
+    [autoplay]="{
+      delay: 5000,
+      disableOnInteraction: false
+    }"
+    [loop]="true"
+    [pagination]="{
+    clickable: true
+  }"
+  >
+    <ng-template swiperSlide  *ngFor="let src of banner"><div class="banner"><img src="{{src}}" alt="banner"></div> </ng-template>
+  </swiper>
+</div>
+

@@ -1,0 +1,63 @@
+<div
+  class="auth-menu-field"
+  (mousedown)="headerService.closeAuthMenu($event.target)"
+>
+  <div class="auth-menu-block">
+    <svg id="close-button" (click)="headerService.setIsAuthMenu(false)">
+      <use xlink:href="../../assets/sprite.svg#close"></use>
+    </svg>
+    <div
+      *ngIf="headerService.isLoginMenu; else registration"
+      class="auth-menu-form"
+      [formGroup]="loginControl"
+    >
+      <h3>Вход</h3>
+      <label for="login-Email"> Электронная почта </label>
+      <input type="email" id="login-Email" formControlName="login" />
+      <label for="login-password"> Пароль </label>
+      <input
+        type="password"
+        id="login-password"
+        formControlName="password"
+      />
+      <button type="button" class="big-button" (click)="submitLogin()">Войти</button>
+      <button type="text" class="more">
+        <p (click)="headerService.isLoginMenu = false">Регистрация</p>
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #registration>
+  <div class="auth-menu-form" [formGroup]="registrationControl">
+    <h3>Регистрация</h3>
+    <label for="registration-first-name"> Имя </label>
+    <input
+      type="email"
+      id="registration-first-name"
+      formControlName="firstName"
+    />
+    <label for="registration-last-name"> Фамилия </label>
+    <input
+      type="email"
+      id="registration-last-name"
+      formControlName="lastName"
+    />
+    <label for="registration-Email"> Электронная почта </label>
+    <input
+      type="email"
+      id="registration-Email"
+      formControlName="login"
+    />
+    <label for="registration-password"> Пароль </label>
+    <input
+      type="text"
+      id="registration-password"
+      formControlName="password"
+    />
+    <button type="button" class="big-button" (click)="submitRegistration()">Регистрация</button>
+    <button type="text" class="more">
+      <p (click)="headerService.isLoginMenu = true">Вход</p>
+    </button>
+  </div>
+</ng-template>

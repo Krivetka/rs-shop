@@ -1,0 +1,33 @@
+<div class="account-block">
+  <img src="../../../../assets/user.png" alt="user photo">
+  <button *ngIf="!getAuthStatus()" class="login-button" (click)="headerService.setIsAuthMenu(true)">Войти</button>
+  <ng-container *ngIf="getAuthStatus()"><h3>{{login}}</h3></ng-container>
+  <div class="account-button" (click)="headerService.closeAll()" routerLink="/cart">
+    <svg class="account-icon">
+      <use xlink:href="../../assets/sprite.svg#shopping-cart"></use>
+    </svg>
+    Корзина
+  </div>
+  <hr>
+  <div class="account-button" (click)="headerService.closeAll()" routerLink="/aside">
+    <svg class="account-icon" id="like">
+      <use xlink:href="../../assets/sprite.svg#like"></use>
+    </svg>
+    Избранные товары
+  </div>
+  <div class="account-button" (click)="headerService.closeAll()" routerLink="/order">
+    <svg class="account-icon">
+      <use xlink:href="../../assets/sprite.svg#list"></use>
+    </svg>
+    Лист ожидания
+  </div>
+  <ng-container *ngIf="getAuthStatus()">
+    <hr>
+    <div class="account-button" (click)="logout()">
+      <svg class="account-icon">
+        <use xlink:href="../../assets/sprite.svg#logout"></use>
+      </svg>
+      Выйти
+    </div>
+  </ng-container>
+</div>
