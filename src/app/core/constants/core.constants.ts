@@ -1,6 +1,6 @@
 export const GET_IP_URL = 'https://jsonip.com/';
-export const GET_CITY_URL = 'http://api.ipstack.com/';
-export const CITY_URL_KEY = '?access_key=2b64ce93771bd0fa4c66e77a852d6188';
+export const GET_CITY_URL = 'https://ipinfo.io/';
+export const CITY_URL_KEY = '?token=4fe673e7115ab9';
 
 export const CITIES_FOR_IP = {
   Minsk: 'Минск',
