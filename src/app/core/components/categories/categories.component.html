@@ -1,0 +1,29 @@
+<div class="categories-field">
+  <div class="categories-block">
+    <div class="categories-list">
+      <div
+        class="category-name"
+        *ngFor="let category of headerService.items; first as isFirst"
+        [class.active-category]="isFirst"
+        [id]="category.id"
+        (mouseenter)="addActive($event)"
+      >
+        <div class="icon"></div>
+        {{ category.name }}
+      </div>
+    </div>
+    <div class="category-menu">
+      <h2>{{ headerService.activeCategory }}</h2>
+      <ul>
+        <li
+          *ngFor="let item of headerService.subcategory"
+          [id]="item.id"
+          [routerLink]="['/goods', headerService.activeCategoryId, item.id]"
+          (click)="headerService.closeAll()"
+        >
+          {{ item.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

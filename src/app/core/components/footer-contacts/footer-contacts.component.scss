@@ -1,0 +1,78 @@
+$icon-viber-color: #7c53a6;
+$icon-live-color: #052992;
+$icon-color: #1a1a1a;
+$icon-telegram-bg-color: #39a9e0;
+$icon-hover-color: #d62761;
+$text-hover-color: #d62761;
+$text-color: #1a1a1a;
+$contact-block-bg-color: #f7f8fa;
+
+.contact-block{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background: $contact-block-bg-color;
+  .contact-connection,
+  .contact-phone {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 10px 15px;
+    transition: 0.2s ease;
+    .connection-icon,
+    .phone-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 2px;
+    }
+    p {
+      color: $text-color;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+      white-space: nowrap;
+      line-height: 20px;
+    }
+  }
+  .contact-connection {
+    color: $icon-color;
+    &:hover {
+      transition: 0.2s ease;
+      .connection-icon {
+        color: $icon-hover-color;
+        fill: $icon-hover-color;
+      }
+      #telegram {
+        color: $icon-hover-color;
+      }
+      p {
+        color: $text-hover-color;
+      }
+      #viber {
+        color: $icon-hover-color;
+        fill: $icon-hover-color;
+      }
+      p {
+        color: $text-hover-color;
+      }
+    }
+  }
+
+  .contact-phone {
+    p {
+      cursor: text;
+    }
+  }
+  #viber {
+    fill: $icon-viber-color;
+    color: $icon-viber-color;
+  }
+  #life {
+    color: $icon-live-color;
+  }
+  #telegram {
+    fill: #fff;
+    color: $icon-telegram-bg-color;
+  }
+}

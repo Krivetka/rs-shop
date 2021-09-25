@@ -1,0 +1,88 @@
+$header-bg-color: #f7f8fa;
+$header-border-color: rgba(213, 215, 219, 0.4);
+$btn-color-hover: #d62761;
+$working-time-color: #909399;
+$menu-separator-border-color: #d5d7db;
+
+.header-info {
+  background: $header-bg-color;
+  border-bottom: 1px solid $header-border-color;
+  padding: 20px 0;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+  .location {
+    flex: 0 1 55%;
+    display: flex;
+    align-items: center;
+    height: 20px;
+    .location-button {
+      display: flex;
+      align-items: center;
+      &:hover {
+        transition: all 0.2s ease;
+        .location-icon {
+          fill: $btn-color-hover;
+        }
+        h4 {
+          color: $btn-color-hover;
+        }
+      }
+      .location-icon {
+        fill: #1a1a1a;
+        width: 10px;
+        height: 13px;
+      }
+      h4 {
+        margin: 2px 0 0 7px;
+        color: #1a1a1a;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+  app-contacts {
+    display: flex;
+    width: 320px;
+    align-items: center;
+    &::before {
+      content: "";
+      margin-right: 15px;
+      height: 16px;
+      border-left: 1px solid $menu-separator-border-color;
+    }
+  }
+  .schedule {
+    display: flex;
+    flex: 0 1 10%;
+    align-items: center;
+    .schedule-icon {
+      fill: $working-time-color;
+      width: 24px;
+      height: 24px;
+    }
+    h6 {
+      margin-left: 3px;
+      color: $working-time-color;
+      width: 70px;
+      height: 28px;
+      font-size: 10px;
+      line-height: 14px;
+      font-family: Arial, sans-serif;
+    }
+    &::before {
+      content: "";
+      margin-right: 15px;
+      height: 16px;
+      border-left: 1px solid $menu-separator-border-color;
+    }
+  }
+}

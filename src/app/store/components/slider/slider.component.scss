@@ -1,0 +1,81 @@
+.swiper-field {
+  position: relative;
+  width: 880px;
+  margin: 20px auto;
+
+  h2 {
+    margin: 0 0 10px 55px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      "post-1 post-2 post-3"
+      "post-4 post-5 post-6";
+    grid-template-rows: repeat(2, 120px);
+    grid-template-columns: repeat(3, 270px);
+  }
+  .post-1 {
+    grid-area: post-1;
+  }
+  .post-2 {
+    grid-area: post-2;
+  }
+  .post-3 {
+    grid-area: post-3;
+  }
+  .post-4 {
+    grid-area: post-4;
+  }
+  .post-5 {
+    grid-area: post-5;
+  }
+  .post-6 {
+    grid-area: post-6;
+  }
+  .post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    .post-img {
+      width: 80px;
+      height: 80px;
+      margin-right: 20px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    .post-title {
+      cursor: pointer;
+      h3 {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 170px;
+        font-size: 12px;
+        text-align: left;
+        text-decoration: underline;
+      }
+    }
+    .post-id {
+      margin-top: 3px;
+      text-align: left;
+      color: #999;
+      white-space: nowrap;
+      font-size: 11px;
+      font-weight: normal;
+    }
+    .post-price {
+      margin-top: 5px;
+      text-align: left;
+      white-space: nowrap;
+      font-size: 14px;
+      color: #000;
+    }
+  }
+}

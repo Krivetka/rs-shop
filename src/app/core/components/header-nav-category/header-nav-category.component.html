@@ -1,0 +1,5 @@
+<div class="nav-menu">
+  <div class="nav-menu-item" *ngFor="let item of headerService.items" [routerLink]="['/goods',item.id]">
+    {{ item.name }}
+  </div>
+</div>

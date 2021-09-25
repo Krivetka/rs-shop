@@ -1,0 +1,35 @@
+<app-header-info></app-header-info>
+<div class="header-nav-block">
+  <div class="logo-block" routerLink="/">
+    <img src="./assets/logo.svg" alt="logo" id="logo" />
+    <h1>Krivetka</h1>
+  </div>
+  <button
+    class="catalog header-btn"
+    (click)="this.headerService.setCategories(!this.headerService.isCategories)"
+  >
+    Каталог товаров
+  </button>
+  <app-categories *ngIf="headerService.isCategories"></app-categories>
+  <app-search></app-search>
+  <button
+    class="auth-block header-btn"
+    (click)="headerService.setIsAccount(!headerService.isAccount)"
+  >
+    <svg class="auth-icon">
+      <use xlink:href="./assets/sprite.svg#auth"></use>
+    </svg>
+    Аккаунт
+  </button>
+  <app-account *ngIf="headerService.isAccount"></app-account>
+  <button class="shopping-cart header-btn" (click)="headerService.closeAll()" routerLink="/cart">
+    <p class="in-cart">{{headerService.inCart}}</p>
+    <svg class="shopping-cart-icon">
+      <use xlink:href="./assets/sprite.svg#shopping-cart"></use>
+    </svg>
+    Корзина
+  </button>
+</div>
+<app-city-menu *ngIf="headerService.isCityMenu"></app-city-menu>
+<app-auth-menu *ngIf="headerService.isAuthMenu"></app-auth-menu>
+<app-header-nav-category></app-header-nav-category>

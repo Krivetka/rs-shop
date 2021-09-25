@@ -1,0 +1,90 @@
+$social-networks-block-bg-color: #f7f8fa;
+$vk-color: #447dbd;
+$facebook-color: #4469b0;
+$YT-color: #ff2638;
+$Ok-color: #fa9019;
+$icon-hover-color: #fff;
+
+.social-networks-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $social-networks-block-bg-color;
+  padding-bottom: 20px;
+  .social-network-item {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin: 20px 3px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(23, 35, 38, 0.05);
+    background: #fff;
+    transition: all .2s ease-out;
+    .social-network-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+#vk {
+  .social-network-icon {
+    fill: $vk-color;
+  }
+  &:hover{
+    background-color: $vk-color;
+    transition: all .2s ease-out;
+    .social-network-icon {
+      fill: $icon-hover-color;
+    }
+  }
+}
+#facebook {
+  transition: all .2s ease-out;
+  .social-network-icon {
+    fill: $facebook-color;
+  }
+  &:hover{
+    background-color: $facebook-color;
+    transition: all .2s ease-out;
+    .social-network-icon {
+      fill: $icon-hover-color;
+    }
+  }
+}
+#instagram {
+  &:hover{
+    background: rgb(246,219,11);
+    background: linear-gradient(155deg, rgba(246,219,11,1) 0%, rgba(215,14,79,1) 50%, rgba(113,65,223,1) 100%);
+    transition: all .2s ease-out;
+    .social-network-icon {
+      fill: $icon-hover-color;
+    }
+  }
+}
+#YT {
+  .social-network-icon {
+    fill: $YT-color;
+  }
+  &:hover{
+    background-color: $YT-color;
+    transition: all .2s ease-out;
+    .social-network-icon {
+      fill: $icon-hover-color;
+    }
+  }
+}
+#Ok {
+  .social-network-icon {
+    fill: $Ok-color;
+  }
+  &:hover{
+    background-color: $Ok-color;
+    transition: all .2s ease-out;
+    .social-network-icon {
+      fill: $icon-hover-color;
+    }
+  }
+}

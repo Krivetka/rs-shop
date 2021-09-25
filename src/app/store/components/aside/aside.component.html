@@ -1,0 +1,49 @@
+<div class="aside-block">
+  <h2>Избранные товары</h2>
+  <div class="aside-field">
+    <div class="aside-item" *ngFor="let item of items">
+      <div class="item-icon">
+        <img
+          [src]="item.imageUrls[0]"
+          alt="item-icon"
+          *ngIf="item.imageUrls[0]; else noPhoto"
+        />
+        <ng-template #noPhoto
+          ><img src="./assets/no_image.jpg" alt="item-icon"
+        /></ng-template>
+      </div>
+      <h3
+        class="item-name"
+        [routerLink]="['/goods/item', item.id]"
+        (click)="headerService.closeAll()"
+      >
+        {{ item.name }}
+      </h3>
+      <div class="item-rating" *ngIf="item.rating > 0">
+        <span [ngClass]="{ active: item.rating > 0 }"></span>
+        <span [ngClass]="{ active: item.rating > 1 }"></span>
+        <span [ngClass]="{ active: item.rating > 2 }"></span>
+        <span [ngClass]="{ active: item.rating > 3 }"></span>
+        <span [ngClass]="{ active: item.rating > 4 }"></span>
+      </div>
+      <div class="item-prise" *ngIf="item.availableAmount > 0">
+        {{ item.price }} р.
+      </div>
+      <button
+        class="basket"
+        *ngIf="!item.isInCart && item.availableAmount > 0; else InCart"
+        (click)="addCard(item.id)"
+      >
+        В корзину
+      </button>
+      <ng-template #InCart>
+        <button class="basket in-basket" *ngIf="item.availableAmount > 0">
+          Уже в корзине
+        </button>
+      </ng-template>
+      <div class="delete" (click)="deleteFavorite(item.id)">
+        Удалить из списка
+      </div>
+    </div>
+  </div>
+</div>

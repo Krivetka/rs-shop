@@ -1,0 +1,86 @@
+<div class="cart-block">
+  <h2>Оформление заказа</h2>
+  <h3>Список товаров</h3>
+  <div class="cart-title">
+    <div class="col col-35">Товар</div>
+    <div class="col col-10"></div>
+    <div class="col col-20">Количество</div>
+    <div class="col col-20">Доставка</div>
+    <div class="col col-15">Стоимость</div>
+  </div>
+  <div class="cart-items" *ngFor="let item of storeService.itemsInCart">
+    <div class="col col-35">
+      <div class="item-icon">
+        <img
+          [src]="item.imageUrls[0]"
+          alt="item-icon"
+          *ngIf="item.imageUrls[0]; else noPhoto"
+        />
+        <ng-template #noPhoto
+          ><img src="./assets/no_image.jpg" alt="item-icon"
+        /></ng-template>
+      </div>
+      <div class="delete" (click)="deleteCartItem(item.id)">×</div>
+      <div class="item-info" [routerLink]="['/goods/item', item.id]">
+        {{ item.name }}
+      </div>
+    </div>
+    <div class="col col-10">
+      <svg
+        class="favorites-icon not-like-icon"
+        *ngIf="!item.isFavorite; else like"
+        (click)="addFavorites(item.id)"
+      >
+        <use xlink:href="./assets/sprite.svg#not-like"></use>
+      </svg>
+      <ng-template #like>
+        <svg class="favorites-icon">
+          <use xlink:href="./assets/sprite.svg#favorite"></use>
+        </svg>
+      </ng-template>
+    </div>
+    <div class="col col-20">
+      <div class="counter">
+        <button
+          class="counter-btn"
+          (click)="countMinus(item)"
+          [disabled]="isMin(item)"
+        >
+          <svg class="counter-btn-icon">
+            <use xlink:href="./assets/sprite.svg#minus"></use>
+          </svg>
+        </button>
+        <label>
+          <input type="number" [value]="item.count" readonly />
+        </label>
+        <button
+          class="counter-btn"
+          (click)="countPlus(item)"
+          [disabled]="isMax(item)"
+        >
+          <svg class="counter-btn-icon">
+            <use xlink:href="./assets/sprite.svg#plus"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="col col-20">
+      <div class="delivery">
+        <p>Курьером: завтра</p>
+        <p>Самовывоз: завтра</p>
+      </div>
+    </div>
+    <div class="col col-15">
+      <p class="sum">{{ getSum(item) }} р.</p>
+    </div>
+  </div>
+  <div class="total">
+    <p>
+      Общая стоимость: <span>{{ getTotal() }} р.</span>
+    </p>
+  </div>
+  <div class="col-100">
+    <div class="checkout" (click)="storeService.isCartForm = true">Оформить заказ</div>
+  </div>
+  <app-cart-form *ngIf="storeService.isCartForm"></app-cart-form>
+</div>
