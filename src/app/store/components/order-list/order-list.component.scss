@@ -1,0 +1,60 @@
+.order {
+  width: 90%;
+  margin: 20px auto;
+  .list-title {
+    cursor: pointer;
+    padding: 10px 30px;
+
+    border-radius: 5px;
+    box-shadow: rgba(3, 102, 214, 0.3) 0 0 0 3px;
+    &:hover {
+      box-shadow: rgba(25, 33, 214, 0.39) 0 0 0 3px;
+    }
+  }
+  .order-items {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    .order-items-title{
+      text-align: center;
+      border: 1px solid #1a1a1a;
+      padding: 10px 0;
+      background: #AFCDE7;
+
+    }
+    .order-name {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      flex: 0 1 65%;
+    }
+    .order-count {
+      flex: 0 1 15%;
+    }
+    .order-price {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      flex: 0 1 20%;
+    }
+  }
+  .order-info{
+    margin-top: 20px;
+  }
+  .button-menu{
+    margin: 30px auto;
+    width: fit-content;
+    .put-button{
+      padding: 10px 20px;
+      background: #91a7e7;
+      color: #fff;
+      border-radius: 6px;
+      margin-right: 10px;
+    }
+    .delete-button{
+      padding: 10px 20px;
+      background: #e74e51;
+      color: #fff;
+      border-radius: 6px;
+    }
+  }
+
+}

@@ -20,6 +20,7 @@ export class ItemComponent implements OnInit, OnDestroy {
   private item$: Subscription | undefined;
   private favorites$: Subscription | undefined;
   private route$: Subscription | undefined;
+  private items$: Subscription | undefined;
   constructor(
     public headerService: HeaderService,
     public storeService: StoreService,
@@ -42,7 +43,7 @@ export class ItemComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.route$ = this.route.params.subscribe((params: Params) => {
-      this.storeService.getItem(params.itemId).subscribe((res) => {
+      this.items$ = this.storeService.getItem(params.itemId).subscribe((res) => {
         this.itemInfo = res;
         if (!res.imageUrls[0]) {
           this.itemInfo.imageUrls = ['../../../../assets/no_image.jpg'];
@@ -100,6 +101,9 @@ export class ItemComponent implements OnInit, OnDestroy {
     }
     if (this.favorites$) {
       this.favorites$.unsubscribe();
+    }
+    if (this.items$) {
+      this.items$.unsubscribe();
     }
   }
 }

@@ -15,6 +15,8 @@ import { AsideComponent } from './components/aside/aside.component';
 import { OrderComponent } from './components/order/order.component';
 import { CartFormComponent } from './components/cart-form/cart-form.component';
 import { MainComponent } from './components/main/main.component';
+import { OrderItemComponent } from './components/order-item/order-item.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { MainComponent } from './components/main/main.component';
     OrderComponent,
     CartFormComponent,
     MainComponent,
+    OrderItemComponent,
+    OrderListComponent,
   ],
   imports: [
     CommonModule,

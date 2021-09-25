@@ -1,7 +1,7 @@
 <app-header-info></app-header-info>
 <div class="header-nav-block">
   <div class="logo-block" routerLink="/">
-    <img src="../../../../assets/logo.svg" alt="logo" id="logo" />
+    <img src="./assets/logo.svg" alt="logo" id="logo" />
     <h1>Krivetka</h1>
   </div>
   <button
@@ -17,7 +17,7 @@
     (click)="headerService.setIsAccount(!headerService.isAccount)"
   >
     <svg class="auth-icon">
-      <use xlink:href="../../assets/sprite.svg#auth"></use>
+      <use xlink:href="./assets/sprite.svg#auth"></use>
     </svg>
     Аккаунт
   </button>
@@ -25,7 +25,7 @@
   <button class="shopping-cart header-btn" (click)="headerService.closeAll()" routerLink="/cart">
     <p class="in-cart">{{headerService.inCart}}</p>
     <svg class="shopping-cart-icon">
-      <use xlink:href="../../assets/sprite.svg#shopping-cart"></use>
+      <use xlink:href="./assets/sprite.svg#shopping-cart"></use>
     </svg>
     Корзина
   </button>

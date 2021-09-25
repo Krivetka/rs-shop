@@ -1,15 +1,15 @@
 export const BASE_URL = 'http://localhost:3004/';
 export const BANNER_IMG = [
-  '../assets/slider/60f804f0ee346виза.jpg',
-  '../assets/slider/613eec47b4a79ЭОС_730х440.jpg',
-  '../assets/slider/613eed5659336730x440_21vek_apple.jpg',
-  '../assets/slider/613ef3e392d06730x440_21vek_LG_22_SAIT_web.jpg',
-  '../assets/slider/613ef9fc1c47d730x440_21vek_SAIT_092021.jpg',
-  '../assets/slider/613ef990610db730x440_bosch.jpg',
-  '../assets/slider/613efba12cb9c730x440_21vek_holt_WRK2.jpg',
-  '../assets/slider/613f08464a566730x440_21vek_samsung.jpg',
-  '../assets/slider/6110f68daaa5c730х440_21vek_Shkola_WRK.jpg',
-  '../assets/slider/61405802d4509730x440_21vek_book.jpg',
+  './assets/slider/60f804f0ee346виза.jpg',
+  './assets/slider/613eec47b4a79ЭОС_730х440.jpg',
+  './assets/slider/613eed5659336730x440_21vek_apple.jpg',
+  './assets/slider/613ef3e392d06730x440_21vek_LG_22_SAIT_web.jpg',
+  './assets/slider/613ef9fc1c47d730x440_21vek_SAIT_092021.jpg',
+  './assets/slider/613ef990610db730x440_bosch.jpg',
+  './assets/slider/613efba12cb9c730x440_21vek_holt_WRK2.jpg',
+  './assets/slider/613f08464a566730x440_21vek_samsung.jpg',
+  './assets/slider/6110f68daaa5c730х440_21vek_Shkola_WRK.jpg',
+  './assets/slider/61405802d4509730x440_21vek_book.jpg',
 ];
 export const DELIVERY_TIME = [
   '9:00-10:00',

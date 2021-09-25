@@ -1,0 +1,26 @@
+.order-item-info {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  .order-item-name {
+    flex: 0 1 65%;
+    padding: 5px 10px;
+    background: #d8e6f3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .order-item-count {
+    text-align: center;
+    flex: 0 1 15%;
+    padding: 5px 0;
+    background: #d8e6f3;
+  }
+  .order-item-price {
+    text-align: center;
+    flex: 0 1 20%;
+    padding: 5px 0;
+    background: #d8e6f3;
+  }
+}

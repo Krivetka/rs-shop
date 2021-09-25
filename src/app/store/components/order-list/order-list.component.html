@@ -1,1 +1,57 @@
-<p>order-list works!</p>
+<div class="order">
+  <p class="list-title" (click)="setList()">Заказ: {{ id }}</p>
+  <div *ngIf="isList">
+    <div class="order-items">
+      <p class="order-name order-items-title">Товар</p>
+      <p class="order-count order-items-title">Количесвто</p>
+      <p class="order-price order-items-title">Цена</p>
+    </div>
+    <app-order-item
+      *ngFor="let item of items"
+      [itemInfo]="item"
+    ></app-order-item>
+    <div
+      class="order-info"
+      [formGroup]="orderControl"
+      *ngIf="storeService.isChangeOrder; else save"
+    >
+      <label for="full-name"> ФИО: </label>
+      <input type="email" id="full-name" formControlName="fullName" />
+      <br/>
+      <label for="delivery-address"> Адрес доставки: </label>
+      <input id="delivery-address" formControlName="deliveryAddress" />
+      <br/>
+      <label for="phone-number"> Номер телефона: </label>
+      <input id="phone-number" formControlName="phoneNumber" />
+      <br/>
+      <p>Желаемое время доставки: {{ timeToDeliver }}</p>
+      <label for="comment"> Комментарий к заказу: </label>
+      <input  id="comment" formControlName="comment"/>
+      <div class="button-menu">
+        <button class="put-button" (click)="putOrder()">
+          Сохранить изменения
+        </button>
+      </div>
+    </div>
+    <ng-template #save>
+      <div class="order-info">
+        <p>ФИО: {{ name }}</p>
+        <p>Адрес доставки:{{ address }}</p>
+        <p>Номер телефона: {{ phone }}</p>
+        <p>Желаемое время доставки: {{ timeToDeliver }}</p>
+        <p>Комментарий к заказу: {{ comment }}</p>
+        <div class="button-menu">
+          <button
+            class="put-button"
+            (click)="storeService.isChangeOrder = true"
+          >
+            Изменить заказ
+          </button>
+          <button class="delete-button" (click)="deleteOrder()">
+            Удалить заказ
+          </button>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

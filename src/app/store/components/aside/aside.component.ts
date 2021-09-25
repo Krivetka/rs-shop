@@ -16,6 +16,7 @@ export class AsideComponent implements OnInit, OnDestroy {
   private categories$: Subscription | undefined;
   private favorits: string[] = [];
   private delete$: Subscription | undefined;
+  private item$: Subscription | undefined;
 
   constructor(
     private storeService: StoreService,
@@ -31,9 +32,11 @@ export class AsideComponent implements OnInit, OnDestroy {
     this.items = [];
     this.aside$ = this.headerService.getUser().subscribe((res) => {
       this.favorits = res.favorites;
-      res.favorites.forEach((id: string) => this.storeService
-        .getItem(id)
-        .subscribe((item: StoreItem) => this.items.push(item)));
+      res.favorites.forEach((id: string) => {
+        this.item$ = this.storeService
+          .getItem(id)
+          .subscribe((item: StoreItem) => this.items.push(item));
+      });
     });
   }
   addCard(id: string) {
@@ -54,6 +57,9 @@ export class AsideComponent implements OnInit, OnDestroy {
       .subscribe(() => this.getFavorits());
   }
   ngOnDestroy(): void {
+    if (this.item$) {
+      this.item$.unsubscribe();
+    }
     if (this.aside$) {
       this.aside$.unsubscribe();
     }

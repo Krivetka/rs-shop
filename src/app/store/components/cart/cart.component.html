@@ -17,7 +17,7 @@
           *ngIf="item.imageUrls[0]; else noPhoto"
         />
         <ng-template #noPhoto
-          ><img src="../../../../assets/no_image.jpg" alt="item-icon"
+          ><img src="./assets/no_image.jpg" alt="item-icon"
         /></ng-template>
       </div>
       <div class="delete" (click)="deleteCartItem(item.id)">×</div>
@@ -31,11 +31,11 @@
         *ngIf="!item.isFavorite; else like"
         (click)="addFavorites(item.id)"
       >
-        <use xlink:href="../../assets/sprite.svg#not-like"></use>
+        <use xlink:href="./assets/sprite.svg#not-like"></use>
       </svg>
       <ng-template #like>
         <svg class="favorites-icon">
-          <use xlink:href="../../assets/sprite.svg#favorite"></use>
+          <use xlink:href="./assets/sprite.svg#favorite"></use>
         </svg>
       </ng-template>
     </div>
@@ -47,7 +47,7 @@
           [disabled]="isMin(item)"
         >
           <svg class="counter-btn-icon">
-            <use xlink:href="../../assets/sprite.svg#minus"></use>
+            <use xlink:href="./assets/sprite.svg#minus"></use>
           </svg>
         </button>
         <label>
@@ -59,7 +59,7 @@
           [disabled]="isMax(item)"
         >
           <svg class="counter-btn-icon">
-            <use xlink:href="../../assets/sprite.svg#plus"></use>
+            <use xlink:href="./assets/sprite.svg#plus"></use>
           </svg>
         </button>
       </div>

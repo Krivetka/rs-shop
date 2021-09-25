@@ -14,6 +14,7 @@ export class CartComponent implements OnInit, OnDestroy {
   private cart$: Subscription | undefined;
   private favorites$: Subscription | undefined;
   private delete$: Subscription | undefined;
+  private item$: Subscription | undefined;
 
   constructor(
     public headerService: HeaderService,
@@ -28,10 +29,14 @@ export class CartComponent implements OnInit, OnDestroy {
   getCart() {
     this.storeService.itemsInCart = [];
     this.cart$ = this.headerService.getUser().subscribe((res) => {
-      res.cart.forEach((id: string) => this.storeService.getItem(id).subscribe((item: StoreItem) => {
-        item.count = 1;
-        this.storeService.itemsInCart.push(item);
-      }));
+      res.cart.forEach((id: string) => {
+        this.item$ = this.storeService
+          .getItem(id)
+          .subscribe((item: StoreItem) => {
+            item.count = 1;
+            this.storeService.itemsInCart.push(item);
+          });
+      });
     });
   }
   countMinus(item: StoreItem) {
@@ -96,6 +101,9 @@ export class CartComponent implements OnInit, OnDestroy {
     }
     if (this.delete$) {
       this.delete$.unsubscribe();
+    }
+    if (this.item$) {
+      this.item$.unsubscribe();
     }
   }
 }

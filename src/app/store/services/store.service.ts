@@ -5,14 +5,16 @@ import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { StoreItem } from '../models/store-items';
 import { BASE_URL } from '../constants/store.constants';
-import { UserFormInfo } from '../models/user-info';
+import { Order, UserFormInfo } from '../models/user-info';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StoreService {
   isCartForm = false;
+  isChangeOrder = false;
   itemsInCart: StoreItem[] = [];
+  orders: Order[] = [];
   constructor(private httpClient: HttpClient, private router: Router) {}
   closeCartForm(ev: any) {
     if (ev.className === 'cart-form-field') {
@@ -38,7 +40,9 @@ export class StoreService {
       path = `${categoryId}/${subCategoryId}`;
     }
     if (sortBy && reverse !== undefined) {
-      const params = new HttpParams().set('sortBy', sortBy).set('reverse', reverse);
+      const params = new HttpParams()
+        .set('sortBy', sortBy)
+        .set('reverse', reverse);
       return this.httpClient.get<StoreItem[]>(
         `${BASE_URL}goods/category/${path}?start=${start}&count=${count}`,
         { headers: this.getAutorization(), params },
@@ -104,5 +108,15 @@ export class StoreService {
       { items: cart, details: info },
       { headers: this.getAutorization() },
     );
+  }
+  putOrder(putBody: any) {
+    return this.httpClient.put(`${BASE_URL}users/order`, putBody, {
+      headers: this.getAutorization(),
+    });
+  }
+  deleteOrder(id: string) {
+    return this.httpClient.delete(`${BASE_URL}users/order?id=${id}`, {
+      headers: this.getAutorization(),
+    });
   }
 }

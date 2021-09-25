@@ -2,7 +2,7 @@
 
 .store-description{
   text-indent: 1.5em;
-  width: 80%;
+  width: 60%;
   margin: 30px auto;
   padding: 40px;
   border: 1px solid #7c53a6;
@@ -10,4 +10,13 @@
   box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
   font-size: 20px;
   font-family: 'Open Sans Condensed', sans-serif;
+  #name{
+    margin-left: 80%;
+  }
 }
+.video{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

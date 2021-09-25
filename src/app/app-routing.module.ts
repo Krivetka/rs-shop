@@ -9,7 +9,7 @@ import { CartComponent } from './store/components/cart/cart.component';
 import { AsideComponent } from './store/components/aside/aside.component';
 import { OrderComponent } from './store/components/order/order.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
-import {MainComponent} from "./store/components/main/main.component";
+import { MainComponent } from './store/components/main/main.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },

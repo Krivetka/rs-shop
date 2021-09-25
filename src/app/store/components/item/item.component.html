@@ -30,7 +30,7 @@
       <div class="big-img">
         <img [src]="activeImg" [alt]="itemInfo.name" />
       </div>
-      <img *ngIf="itemInfo.rating>4" class="good" src="../../../../assets/like.png" alt="like">
+      <img *ngIf="itemInfo.rating>4" class="good" src="./assets/like.png" alt="like">
     </div>
     <div class="item-card-info-block">
       <div class="first-line">
@@ -40,11 +40,11 @@
           *ngIf="!itemInfo.isFavorite; else like"
           (click)="addFavorites(itemInfo.id)"
         >
-          <use xlink:href="../../assets/sprite.svg#not-like"></use>
+          <use xlink:href="./assets/sprite.svg#not-like"></use>
         </svg>
         <ng-template #like>
           <svg class="favorites-icon">
-            <use xlink:href="../../assets/sprite.svg#favorite"></use>
+            <use xlink:href="./assets/sprite.svg#favorite"></use>
           </svg>
         </ng-template>
       </div>

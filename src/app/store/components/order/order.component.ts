@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { StoreItem } from '../../models/store-items';
-import { StoreService } from '../../services/store.service';
 import { Subscription } from 'rxjs';
 import { HeaderService } from '../../../core/services/header.service';
+import { StoreService } from '../../services/store.service';
 
 @Component({
   selector: 'app-order',
@@ -11,9 +10,10 @@ import { HeaderService } from '../../../core/services/header.service';
 })
 export class OrderComponent implements OnInit, OnDestroy {
   private order$: Subscription | undefined;
+
   constructor(
     public headerService: HeaderService,
-    public storeService: StoreService
+    public storeService: StoreService,
   ) {}
 
   ngOnInit(): void {
@@ -23,12 +23,7 @@ export class OrderComponent implements OnInit, OnDestroy {
   }
   getOrder() {
     this.order$ = this.headerService.getUser().subscribe((res) => {
-      console.log(res.orders)
-      res.orders.items.forEach((item: any) =>
-        this.storeService.getItem(item.id).subscribe((item: StoreItem) => {
-          //this.storeService.itemsInCart.push(item);
-        })
-      );
+      this.storeService.orders = res.orders;
     });
   }
   ngOnDestroy(): void {
